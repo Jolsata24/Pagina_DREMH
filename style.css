@@ -1,0 +1,745 @@
+/* --- Variables Globales (Basadas en image_f7efa4.jpg) --- */
+:root {
+    --color-fondo: #ffffff;
+    --color-texto-principal: #212529; /* Casi negro */
+    --color-texto-secundario: #5a5a5a;
+    --color-acento: #c99742;          /* Dorado/ocre del botón */
+    --color-hero-texto: #ffffff;
+    
+    /* Colores para iconos */
+    --color-fondo-amarillo: #fff8e1;
+    --color-icono-amarillo: #f5b700;
+    --color-fondo-verde: #e8f5e9;
+    --color-icono-verde: #4caf50;
+    --color-fondo-azul: #e3f2fd;
+    --color-icono-azul: #1e88e5;
+    --color-fondo-naranja: #fff3e0;
+    --color-icono-naranja: #fb8c00;
+}
+
+/* --- Reseteo y Estilos Generales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-principal);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Estilos del Header y Navbar --- */
+.header {
+    width: 100%;
+    padding: 15px 5%;
+    background-color: var(--color-fondo);
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--color-texto-principal);
+}
+
+.nav-logo img {
+    height: 35px;
+    margin-right: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-link {
+    color: var(--color-texto-secundario);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-texto-principal);
+}
+
+.cta-button {
+    background-color: var(--color-acento);
+    color: var(--color-fondo);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    opacity: 0.85;
+}
+
+.hamburger {
+    display: none; 
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--color-texto-principal);
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Estilos del Hero Section --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 60vh; 
+    color: var(--color-hero-texto);
+    background-image: url('img/mina.jpg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative; 
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* --- ESTILOS PARA LA SECCIÓN DE PRINCIPIOS --- */
+.principles-section {
+    max-width: 1200px; /* Más ancho para la grilla */
+    margin: 80px auto; 
+    padding: 0 20px;
+    text-align: center;
+}
+
+.principles-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.principles-section > p { /* El párrafo directamente hijo */
+    font-size: 1.1rem;
+    color: var(--color-texto-secundario);
+    max-width: 800px;
+    margin: 0 auto 50px auto; /* Centra el párrafo de intro */
+}
+
+/* Estilos de la Grilla */
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 30px;
+}
+
+/* Estilos de las Tarjetas */
+.principle-card {
+    background-color: var(--color-fondo);
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.principle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.principle-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--color-texto-principal);
+}
+
+.principle-card p {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.5;
+}
+
+/* Estilos de los Iconos */
+.icon-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+/* Colores de los Iconos */
+.icon-container.icon-yellow {
+    background-color: var(--color-fondo-amarillo);
+    color: var(--color-icono-amarillo);
+}
+.icon-container.icon-green {
+    background-color: var(--color-fondo-verde);
+    color: var(--color-icono-verde);
+}
+.icon-container.icon-blue {
+    background-color: var(--color-fondo-azul);
+    color: var(--color-icono-azul);
+}
+.icon-container.icon-orange {
+    background-color: var(--color-fondo-naranja);
+    color: var(--color-icono-naranja);
+}
+
+
+/* --- ESTILOS PARA EL TÍTULO DE "GLOBAL OPERATIONS" --- */
+.operations-title-section {
+    max-width: 800px;
+    margin: 80px auto; 
+    padding: 0 20px;
+    text-align: center;
+}
+
+.operations-title-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.operations-title-section p {
+    font-size: 1.1rem;
+    color: var(--color-texto-secundario);
+}
+
+/* --- ESTILOS PARA LA SECCIÓN DE EQUIPO --- */
+.team-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.team-section > p {
+    font-size: 1.1rem;
+    color: var(--color-texto-secundario);
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+/* Grilla de tarjetas de equipo */
+.team-grid {
+    display: grid;
+    /* 3 columnas en escritorio, 4 si prefieres */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+/* Estilos de la tarjeta de equipo */
+.team-card {
+    background-color: var(--color-fondo);
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.team-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Fotos circulares */
+    object-fit: cover; /* Asegura que la imagen se vea bien */
+    margin: 0 auto 20px auto;
+    background-color: #f0f0f0; /* Color de fondo mientras carga */
+}
+
+.team-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+    color: var(--color-texto-principal);
+}
+
+.team-card .title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-acento); /* Usamos el color dorado */
+    margin-bottom: 10px;
+}
+
+.team-card .area {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+}
+
+
+/* --- ESTILOS PARA LA SECCIÓN DE ÁREAS --- */
+.areas-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.areas-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.areas-section > p {
+    font-size: 1.1rem;
+    color: var(--color-texto-secundario);
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+/* Grilla de tarjetas de áreas */
+.areas-grid {
+    display: grid;
+    /* 3 columnas, para que las 5 tarjetas se vean (3+2) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+/* Estilos de la tarjeta de área */
+.area-card {
+    background-color: #f8f9fa; /* Un fondo gris muy claro */
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: left; /* Alineamos el texto a la izquierda */
+    transition: transform 0.3s ease;
+}
+
+.area-card:hover {
+    transform: translateY(-5px);
+}
+
+.area-card i {
+    font-size: 2.5rem; /* Icono grande */
+    color: var(--color-acento); /* Usamos el color dorado */
+    margin-bottom: 20px;
+}
+
+.area-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--color-texto-principal);
+}
+
+.area-card p {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.5;
+}
+
+/* --- ESTILOS PARA EL FOOTER --- */
+.footer {
+    background-color: #f8f9fa; /* Fondo gris muy claro, limpio */
+    padding: 60px 5% 20px 5%;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 80px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* 3 columnas: 1.5fr para la info, 1fr y 1.5fr para el resto */
+    grid-template-columns: 1.5fr 1fr 1.5fr; 
+    gap: 40px;
+}
+
+.footer-col h4 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--color-texto-principal);
+}
+
+/* Columna 1: Logo */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-texto-principal);
+    margin-bottom: 15px;
+}
+
+.footer-logo img {
+    height: 35px;
+}
+
+.footer-col p {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+}
+
+/* Columna 2: Enlaces */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-acento);
+}
+
+/* Columna 3: Contacto */
+.contact-list {
+    list-style: none;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start; /* Alinea al inicio */
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+}
+
+.contact-list i {
+    font-size: 1rem;
+    color: var(--color-acento);
+    padding-top: 4px; /* Alinea mejor el icono */
+}
+
+.contact-list a {
+    color: var(--color-texto-secundario);
+}
+.contact-list a:hover {
+    color: var(--color-acento);
+}
+
+/* Barra inferior */
+.footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #999;
+}
+/* --- ESTILOS PARA LA GALERÍA GRID --- */
+.gallery-grid-section {
+    max-width: 1200px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+}
+
+.gallery-grid-container {
+    display: grid;
+    /* Crea columnas de 250px, pero que se ajustan automáticamente */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    /* Forzamos que la imagen miniatura sea cuadrada */
+    aspect-ratio: 1 / 1; 
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esta es la clave para el tamaño uniforme */
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* --- ESTILOS PARA EL LIGHTBOX --- */
+#gallery-lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    overflow: auto;
+    padding-top: 60px;
+}
+
+.lightbox-content {
+    position: relative;
+    display: flex;
+    flex-direction: row; /* Horizontal */
+    margin: auto;
+    background-color: #fff;
+    width: 90%;
+    max-width: 1200px; /* Ancho máximo */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Botón de cerrar 'X' */
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1; /* Blanco sobre el fondo oscuro */
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 1010;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* Lado izquierdo: Imagen */
+.lightbox-image {
+    flex: 60%; /* 60% del ancho */
+    background-color: #000;
+}
+
+.lightbox-image img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* Máximo 80% de la altura de la pantalla */
+    object-fit: contain; /* Para que la imagen entre completa */
+    display: block;
+}
+
+/* Lado derecho: Información */
+.lightbox-info {
+    flex: 40%; /* 40% del ancho */
+    padding: 30px;
+    overflow-y: auto; /* Scroll si el texto es muy largo */
+    color: var(--color-texto-principal);
+}
+
+.lightbox-info h4 {
+    font-size: 1.5rem;
+    color: var(--color-acento); /* Color dorado */
+    margin-bottom: 20px;
+}
+
+.lightbox-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-texto-secundario);
+}
+
+/* Responsive para el Lightbox en móviles */
+@media (max-width: 768px) {
+    .lightbox-content {
+        flex-direction: column; /* Apilado verticalmente */
+        margin-top: 20px;
+        max-width: 95%;
+    }
+
+    .lightbox-image img {
+        max-height: 50vh; /* Más pequeño en móvil */
+    }
+
+    .lightbox-info {
+        padding: 20px;
+    }
+
+    .lightbox-close {
+        color: #333; /* Color oscuro en móvil (fondo blanco) */
+        top: 5px;
+        right: 15px;
+        font-size: 30px;
+    }
+}
+/* --- Ajustes Responsive para el Footer --- */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1.5fr 1fr; /* 2 columnas en tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* 1 columna en móvil */
+        text-align: center;
+    }
+
+    .footer-logo,
+    .contact-list li {
+        justify-content: center;
+        text-align: left; /* Mantenemos el texto del li a la izquierda */
+    }
+    
+    .contact-list li {
+        justify-content: flex-start; /* Pero lo alineamos a la izq */
+    }
+
+    .footer-col {
+        margin-bottom: 20px;
+    }
+}
+/* --- Ajustes en Responsive para la sección de Áreas --- */
+@media (max-width: 992px) {
+    .areas-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .areas-grid {
+        grid-template-columns: 1fr; /* 1 columna en móvil */
+    }
+    
+    .areas-section h2 {
+        font-size: 2rem;
+    }
+    
+    .area-card {
+        text-align: center; /* Centramos en móvil */
+    }
+}
+
+/* --- Ajustes en Responsive para la sección de Equipo --- */
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* 1 columna en móvil */
+    }
+
+    .team-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* --- Estilos para Móvil (Responsive) --- */
+@media (max-width: 992px) {
+    /* --- Menú hamburguesa --- */
+    .nav-menu {
+        display: none; 
+    }
+    .cta-button {
+        display: none; 
+    }
+    .hamburger {
+        display: block; 
+    }
+    .nav-menu.active {
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 65px; 
+        flex-direction: column;
+        background-color: var(--color-fondo);
+        width: 100%;
+        text-align: center;
+        gap: 20px;
+        padding: 20px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    
+    /* --- Contenido --- */
+    .hero-content h1 { font-size: 2.5rem; }
+    .principles-section h2,
+    .operations-title-section h2 { font-size: 2rem; }
+
+    /* --- Grilla de Principios (2 columnas) --- */
+    .principles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- Grilla de Principios (1 columna) --- */
+    .principles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
