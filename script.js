@@ -1,99 +1,103 @@
-// Seleccionamos los elementos del DOM
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
-
-// Añadimos un "escuchador" de clics al botón de hamburguesa
-hamburger.addEventListener("click", () => {
-    // Alternamos la clase 'active' en ambos elementos
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-});
-
-// (Tu código de hamburguesa existente va aquí arriba)
-// ...
-// ...
-
-// ======== CÓDIGO NUEVO PARA EL CARRUSEL ========
-
-// Espera a que todo el contenido esté cargado
+// Espera a que todo el contenido (DOM) esté cargado antes de ejecutar cualquier script
 document.addEventListener("DOMContentLoaded", function() {
     
-    // Inicializa Swiper
-    const swiper = new Swiper('.swiper', {
-        // Opciones
-        
-        loop: true, // Para que sea un bucle infinito
-        autoplay: {
-            delay: 4000, // Cambia cada 4 segundos
-            disableOnInteraction: false,
-        },
+    // ======== 1. CÓDIGO DEL MENÚ HAMBURGUESA ========
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
 
-        // Paginación (los puntos de abajo)
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+    if (hamburger && navMenu) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+    }
 
-        // Navegación (las flechas)
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-
-});
-
-// (Tu código de hamburguesa existente va aquí arriba)
-// ...
-// ...
-
-// ======== CÓDIGO NUEVO PARA LA GALERÍA LIGHTBOX ========
-document.addEventListener("DOMContentLoaded", function() {
+    // ======== 2. CÓDIGO DEL HEADER OCULTO ========
+    const header = document.querySelector(".header");
     
-    // Seleccionamos todos los elementos de la galería
+    if (header) {
+        const scrollThreshold = 100; // Píxeles para mostrar el header
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > scrollThreshold) {
+                header.classList.add("is-visible");
+            } else {
+                header.classList.remove("is-visible");
+            }
+        });
+    }
+
+    // ======== 3. CÓDIGO DEL CARRUSEL SWIPER ========
+    // (Asegúrate de que la clase '.swiper' exista en tu HTML)
+    if (document.querySelector('.swiper')) {
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    }
+
+    // ======== 4. CÓDIGO DE LA GALERÍA LIGHTBOX (Actualizado para "suavidad") ========
     const galleryItems = document.querySelectorAll('.gallery-item');
-    
-    // Seleccionamos los elementos del Lightbox
     const lightbox = document.getElementById('gallery-lightbox');
-    const lightboxImg = document.getElementById('lightbox-img-src');
-    const lightboxDesc = document.getElementById('lightbox-description');
-    const closeBtn = document.querySelector('.lightbox-close');
-
-    // Función para abrir el lightbox
-    function openLightbox(e) {
-        e.preventDefault(); // Prevenimos que el link <a> navegue
-        
-        const imgSrc = this.getAttribute('href');
-        const description = this.getAttribute('data-description');
-        
-        // Ponemos la info en el lightbox
-        lightboxImg.setAttribute('src', imgSrc);
-        lightboxDesc.textContent = description;
-        
-        // Mostramos el lightbox
-        lightbox.style.display = 'block';
-    }
-
-    // Función para cerrar el lightbox
-    function closeLightbox() {
-        lightbox.style.display = 'none';
-        lightboxImg.setAttribute('src', ''); // Limpiamos la imagen
-    }
-
-    // Añadimos el evento de clic a cada item de la galería
-    galleryItems.forEach(item => {
-        item.addEventListener('click', openLightbox);
-    });
-
-    // Añadimos el evento de clic al botón de cerrar
-    closeBtn.addEventListener('click', closeLightbox);
     
-    // (Opcional) Cerrar al hacer clic fuera de la imagen/info
-    lightbox.addEventListener('click', function(e) {
-        // Si el clic fue en el fondo oscuro (el ID 'gallery-lightbox')
-        if (e.target.id === 'gallery-lightbox') {
-            closeLightbox();
+    if (galleryItems.length > 0 && lightbox) {
+        const lightboxImg = document.getElementById('lightbox-img-src');
+        const lightboxTitle = document.querySelector('.lightbox-info h4');
+        const lightboxDesc = document.getElementById('lightbox-description');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        // Función para abrir el lightbox (AHORA USA CLASES)
+        function openLightbox(e) {
+            e.preventDefault();
+            
+            const imgSrc = this.getAttribute('href');
+            const title = this.getAttribute('data-title');
+            const description = this.getAttribute('data-description');
+            
+            lightboxImg.setAttribute('src', imgSrc);
+            lightboxTitle.textContent = title;
+            lightboxDesc.textContent = description;
+            
+            // Reemplaza 'lightbox.style.display = 'block';'
+            lightbox.classList.add('lightbox-is-visible'); 
         }
-    });
+
+        // Función para cerrar el lightbox (AHORA USA CLASES)
+        function closeLightbox() {
+            // Reemplaza 'lightbox.style.display = 'none';'
+            lightbox.classList.remove('lightbox-is-visible'); 
+            
+            // Opcional: Limpia la imagen después de que la animación termine
+            setTimeout(() => {
+                lightboxImg.setAttribute('src', ''); 
+            }, 400); // 400ms = tiempo de la transición en el CSS
+        }
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', openLightbox);
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeLightbox);
+        }
+        
+        // Cerrar al hacer clic fuera
+        lightbox.addEventListener('click', function(e) {
+            if (e.target.id === 'gallery-lightbox') {
+                closeLightbox();
+            }
+        });
+    }
 
 });

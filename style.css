@@ -18,6 +18,9 @@
 }
 
 /* --- Reseteo y Estilos Generales --- */
+html {
+    scroll-behavior: smooth;
+}
 * {
     margin: 0;
     padding: 0;
@@ -42,16 +45,98 @@ a {
 }
 
 /* --- Estilos del Header y Navbar --- */
+/* --- Estilos del Header y Navbar (Actualizado para ocultarse) --- */
 .header {
     width: 100%;
     padding: 15px 5%;
     background-color: var(--color-fondo);
     border-bottom: 1px solid #e0e0e0;
-    position: sticky;
+    
+    /* --- CAMBIOS CLAVE --- */
+    position: fixed; /* Cambiado de 'sticky' a 'fixed' */
     top: 0;
+    left: 0;
     z-index: 100;
+    
+    transform: translateY(-100%); /* Oculto por defecto */
+    transition: transform 0.4s ease-in-out; /* Animación suave */
+}
+/* --- ESTILOS PARA ICONOS SOCIALES EN HERO (¡NUEVO!) --- */
+/* --- ESTILOS PARA ICONOS SOCIALES EN HERO (Actualizado) --- */
+.hero-socials {
+    /* position: absolute; ... */ /* <-- Ya no es necesario */
+    display: flex;
+    gap: 25px; /* Espacio entre iconos */
+    z-index: 3;
+    margin-top: -50px;
 }
 
+.hero-socials a {
+    color: #ffffff;
+    font-size: 1.5rem; /* Tamaño del icono */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-socials a:hover {
+    color: var(--color-acento);
+    transform: scale(1.1);
+}
+/* --- ESTILOS PARA CONTENEDOR INFERIOR Y FLECHA DE SCROLL (¡NUEVO!) --- */
+
+/* Contenedor que centra los iconos y la flecha */
+.hero-bottom-container {
+    position: absolute;
+    bottom: 40px; /* Distancia desde el borde inferior */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Ajuste fino de centrado */
+    
+    display: flex;
+    flex-direction: column; /* Apila los elementos (iconos arriba, flecha abajo) */
+    align-items: center; /* Centra los elementos horizontalmente */
+    gap: 25px; /* Espacio entre los iconos y la flecha */
+    z-index: 3;
+}
+
+/* Estilo para la flecha de scroll */
+.scroll-down-arrow {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    
+    /* Aplicamos la animación 'bounce' */
+    animation: bounce 2s infinite;
+}
+
+.scroll-down-arrow:hover {
+    color: var(--color-acento); /* Color dorado al pasar el mouse */
+}
+
+/* Definición de la animación (movimiento vertical) */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px); /* Sube */
+    }
+    60% {
+        transform: translateY(-5px); 
+    }
+}
+/* --- ESTILOS PARA EL LOGO EN HERO (¡NUEVO!) --- */
+.hero-logo {
+    width: 100%;
+    max-width: 100px; /* Puedes ajustar este tamaño */
+    margin-bottom: 20px;
+    
+    /* Efecto para que el logo (que es PNG) se lea bien sobre el fondo */
+    filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.5));
+}
+
+.hero-h1-subtitle {
+    display: inline; /* Por defecto, se muestra normal */
+}
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -118,12 +203,13 @@ a {
 }
 
 /* --- Estilos del Hero Section --- */
+/* --- Estilos del Hero Section --- */
 .hero-section {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 60vh; 
+    height: 100vh; /* <--- ASÍ DEBE QUEDAR */
     color: var(--color-hero-texto);
     background-image: url('img/mina.jpg'); 
     background-size: cover;
@@ -147,12 +233,13 @@ a {
     z-index: 2;
     max-width: 800px;
     padding: 0 20px;
+    margin-top: -100px;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .hero-content p {
@@ -528,8 +615,14 @@ a {
 }
 
 /* --- ESTILOS PARA EL LIGHTBOX --- */
+/* --- ESTILOS PARA EL LIGHTBOX (Actualizado para Fade-in) --- */
 #gallery-lightbox {
-    display: none; /* Oculto por defecto */
+    /* display: none; */ /* <-- YA NO USAMOS ESTO */
+    
+    visibility: hidden; /* Oculto por defecto */
+    opacity: 0;         /* Transparente por defecto */
+    transition: opacity 0.4s ease, visibility 0.4s ease; /* La animación */
+    
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -540,6 +633,15 @@ a {
     overflow: auto;
     padding-top: 60px;
 }
+
+/* Nueva clase que añadirá el JS para MOSTRAR el lightbox */
+#gallery-lightbox.lightbox-is-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* (El resto de tus estilos de lightbox: .lightbox-content, .lightbox-close, etc. 
+   pueden quedar exactamente como están) */
 
 .lightbox-content {
     position: relative;
@@ -607,6 +709,90 @@ a {
     color: var(--color-texto-secundario);
 }
 
+/* --- ESTILOS PARA EL CARRUSEL SWIPER (¡NUEVO!) --- */
+.swiper-section {
+    max-width: 1200px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+}
+
+.swiper {
+    width: 100%;
+    height: 500px; /* Ajusta la altura según necesites */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end; /* Alinea el texto abajo */
+    justify-content: flex-start; /* Alinea el texto a la izquierda */
+}
+
+/* --- ESTILOS PARA TÍTULOS DE GALERÍA (¡NUEVO!) --- */
+
+/* 1. Hacemos que el 'item' sea un contenedor de posición */
+.gallery-item {
+    position: relative; 
+}
+
+/* 2. El contenedor del título (el 'caption') */
+.gallery-item-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    /* Degradado elegante para que el texto sea legible */
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.0) 100%);
+    
+    padding: 20px 15px 15px 15px;
+    box-sizing: border-box; /* Para que el padding no rompa el diseño */
+    
+    /* Esto se moverá junto con la animación de 'zoom' que ya tenías */
+}
+
+/* 3. El texto del título */
+.gallery-item-caption span {
+    color: #ffffff;
+    font-size: 1.05rem; /* Un poco más grande */
+    font-weight: 500;
+    
+    /* Sombra para legibilidad */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
+}
+/* Estilo para el texto sobre el slide */
+.slide-caption {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--color-hero-texto);
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+/* Estilo para las flechas de navegación */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--color-hero-texto); /* Color blanco */
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 1.5rem; /* Tamaño del icono de la flecha */
+}
+
+/* Estilo para la paginación (puntos) */
+.swiper-pagination-bullet-active {
+    background-color: var(--color-acento); /* Color dorado */
+}
+
 /* Responsive para el Lightbox en móviles */
 @media (max-width: 768px) {
     .lightbox-content {
@@ -629,6 +815,13 @@ a {
         right: 15px;
         font-size: 30px;
     }
+    .hero-socials {
+    /* position: absolute; ... */ /* <-- Ya no es necesario */
+    display: flex;
+    gap: 25px; /* Espacio entre iconos */
+    z-index: 3;
+    margin-top: -100px;
+}
 }
 /* --- Ajustes Responsive para el Footer --- */
 @media (max-width: 992px) {
@@ -742,4 +935,18 @@ a {
     }
 }
 
+@media (max-width: 768px) {
+    /* ... (tus otras reglas: .principles-grid, etc.) ... */
 
+    /* ¡AÑADE ESTAS DOS REGLAS! */
+    .hero-logo {
+        max-width: 160px; /* Hacemos el logo un poco más pequeño en móvil */
+    }
+    .hero-h1-subtitle {
+        display: none; /* Ocultamos el subtítulo del H1 en móvil */
+    }
+}
+/* Esta clase se añadirá con JavaScript para mostrar el header */
+.header.is-visible {
+    transform: translateY(0);
+}
