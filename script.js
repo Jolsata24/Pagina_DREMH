@@ -101,3 +101,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+
+// ======== CÓDIGO DEL LOADER ========
+// Usamos 'load' en lugar de 'DOMContentLoaded' para esperar a que carguen las IMÁGENES
+window.addEventListener("load", () => {
+    const loader = document.getElementById("page-loader");
+    
+    if (loader) {
+        // Añadimos la clase que lo hace transparente
+        loader.classList.add("loader-hidden");
+        
+        // Opcional: Eliminarlo del HTML completamente después de la transición
+        loader.addEventListener("transitionend", () => {
+            // loader.remove(); // Descomenta si quieres borrarlo del DOM
+        });
+    }
+});

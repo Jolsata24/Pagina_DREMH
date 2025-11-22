@@ -1,0 +1,98 @@
+/* --- ESTILOS PARA PÁGINAS INTERNAS (DOCUMENTOS) --- */
+
+/* Un Hero más pequeño para las páginas internas */
+.page-hero {
+    height: 40vh; /* Menos altura que el inicio */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img/mina.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+
+.page-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Contenedor de la lista de documentos */
+.docs-container {
+    max-width: 900px;
+    margin: 0 auto 80px auto; /* Centrado con margen abajo */
+    padding: 0 20px;
+}
+
+.docs-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-texto-secundario);
+}
+
+/* Estilo de cada item de documento */
+.doc-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--color-acento); /* Borde dorado a la izquierda */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doc-item:hover {
+    transform: translateX(5px); /* Se mueve un poco a la derecha */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background-color: #ffffff;
+}
+
+.doc-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.doc-icon {
+    font-size: 2rem;
+    color: #e74c3c; /* Color rojo tipo PDF */
+}
+
+.doc-details h4 {
+    margin-bottom: 5px;
+    color: var(--color-texto-principal);
+}
+
+.doc-details span {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.doc-btn {
+    padding: 8px 15px;
+    background-color: var(--color-texto-principal);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.doc-btn:hover {
+    background-color: var(--color-acento);
+}
+
+/* Botón de "Volver al Inicio" */
+.back-home-btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0 auto;
+    color: var(--color-texto-secundario);
+    font-weight: 600;
+}
+.back-home-btn:hover {
+    color: var(--color-acento);
+}
