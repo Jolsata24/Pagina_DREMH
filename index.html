@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DREMH - Pasco</title>
-    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="img/dremhlogoicon.png" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
     <div id="page-loader" class="loader-container">
         <div class="loader-spinner"></div>
@@ -25,11 +34,12 @@
                 <span>DREMH Pasco</span>
             </a>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="#principles" class="nav-link">Nosotros</a></li>
-                <li class="nav-item"><a href="#galeria" class="nav-link">Galería</a></li>
-                <li class="nav-item"><a href="#team" class="nav-link">Equipo</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contacto</a></li>
-            </ul>
+    <li class="nav-item"><a href="#principles" class="nav-link">Nosotros</a></li>
+    <li class="nav-item"><a href="#operations" class="nav-link">Galería</a></li>
+    <li class="nav-item"><a href="#team" class="nav-link">Equipo</a></li>
+    <li class="nav-item"><a href="#areas" class="nav-link">Áreas</a></li> 
+    <li class="nav-item"><a href="#contact" class="nav-link">Contacto</a></li>
+</ul>
 
             <div class="hamburger">
                 <span class="bar"></span>
@@ -41,67 +51,78 @@
 
     <main class="hero-section">
         <div class="hero-content">
-            
-            
-            <h1>DREMH <span class="hero-h1-subtitle">: Minería para un Futuro Sostenible</span></h1>
-            <img src="img/dremhlogoicon.png" alt="Logo DREMH Pasco" class="hero-logo">
+
+
+            <h1 data-aos="fade-up">DREMH <span class="hero-h1-subtitle" data-aos="fade-up">: Minería para un Futuro
+                    Sostenible</span></h1>
+            <img src="img/dremhlogoicon.png" alt="Logo DREMH Pasco" class="hero-logo" data-aos="zoom-in">
             <p>Trabajamos por un distrito donde las inversiones mineras y energéticas sean sostenibles.</p>
         </div>
         <div class="hero-bottom-container">
-            
+
             <div class="hero-socials">
-                <a href="https://web.facebook.com/DHREMdistrito/?_rdc=1&_rdr#" target="_blank" aria-label="Visítanos en Facebook">
+                <a href="https://web.facebook.com/DHREMdistrito/?_rdc=1&_rdr#" target="_blank"
+                    aria-label="Visítanos en Facebook">
                     <i class="fa-brands fa-facebook"></i>
                 </a>
-                <a href="https://www.instagram.com/gobiernoregionaldepasco/" target="_blank" aria-label="Visítanos en Instagram">
+                <a href="https://www.instagram.com/gobiernoregionaldepasco/" target="_blank"
+                    aria-label="Visítanos en Instagram">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
                 <a href="#" target="_blank" aria-label="Visítanos en Twitter">
                     <i class="fa-brands fa-twitter"></i>
                 </a>
-                <a href="https://pe.linkedin.com/company/dremh-pasco" target="_blank" aria-label="Visítanos en LinkedIn">
+                <a href="https://pe.linkedin.com/company/dremh-pasco" target="_blank"
+                    aria-label="Visítanos en LinkedIn">
                     <i class="fa-brands fa-linkedin"></i>
                 </a>
             </div>
-            
+
             <a href="#principles" class="scroll-down-arrow" aria-label="Bajar a la siguiente sección">
                 <i class="fa-solid fa-chevron-down"></i>
             </a>
-            
+
         </div>
-        </main>
+    </main>
     </main>
 
     <section class="principles-section" id="principles">
         <h2>Nuestros Principios</h2>
-        <p>En DREMH, nuestras operaciones se basan en un conjunto de valores fundamentales que garantizan que lideremos con integridad y propósito.</p>
+        <p>En DREMH, nuestras operaciones se basan en un conjunto de valores fundamentales que garantizan que lideremos
+            con integridad y propósito.</p>
 
-        <div class="principles-grid" id="galeria">
-            
-            <div class="principle-card">
+        <div class="principles-grid" >
+
+            <div class="principle-card" data-aos="fade-up" data-aos-delay="0">
                 <div class="icon-container icon-yellow">
-                    <i class="fa-solid fa-lightbulb"></i> </div>
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
                 <h3>Innovación</h3>
-                <p>Aprovechando tecnología de punta para redefinir la eficiencia y la gestión ambiental en la minería.</p>
+                <p>Aprovechando tecnología de punta para redefinir la eficiencia y la gestión ambiental en la minería.
+                </p>
             </div>
 
-            <div class="principle-card" id="sustainability">
+            <div class="principle-card" id="sustainability" data-aos="fade-up" data-aos-delay="50">
                 <div class="icon-container icon-green">
-                    <i class="fa-solid fa-leaf"></i> </div>
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
                 <h3>Sostenibilidad</h3>
                 <p>Comprometidos con prácticas que protegen nuestro planeta para las generaciones futuras.</p>
             </div>
 
-            <div class="principle-card">
+            <div class="principle-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="icon-container icon-blue">
-                    <i class="fa-solid fa-shield-halved"></i> </div>
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
                 <h3>Seguridad</h3>
-                <p>Defendiendo los más altos estándares de seguridad para proteger a nuestra gente y nuestras operaciones.</p>
+                <p>Defendiendo los más altos estándares de seguridad para proteger a nuestra gente y nuestras
+                    operaciones.</p>
             </div>
 
-            <div class="principle-card">
+            <div class="principle-card" data-aos="fade-up" data-aos-delay="150">
                 <div class="icon-container icon-orange">
-                    <i class="fa-solid fa-users"></i> </div>
+                    <i class="fa-solid fa-users"></i>
+                </div>
                 <h3>Comunidad</h3>
                 <p>Invirtiendo en las comunidades donde operamos, fomentando el crecimiento y la asociación.</p>
             </div>
@@ -111,13 +132,14 @@
 
     <section class="operations-title-section" id="operations">
         <h2>Recorrido Visual</h2>
-        <p>Nuestros sitios y proyectos mineros muestran la escala y el alcance de nuestro trabajo en todo Pasco. Cada ubicación es un testimonio de nuestra excelencia.</p>
+        <p>Nuestros sitios y proyectos mineros muestran la escala y el alcance de nuestro trabajo en todo Pasco. Cada
+            ubicación es un testimonio de nuestra excelencia.</p>
     </section>
 
-    <section class="swiper-section">
+    <section class="swiper-section" >
         <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url('img/evidencia01.jpeg');">
+            <div class="swiper-wrapper" >
+                <div class="swiper-slide" style="background-image: url('img/evidencia01.jpeg');" >
                     <div class="slide-caption">Exploración Subterránea</div>
                 </div>
                 <div class="swiper-slide" style="background-image: url('img/evidencia02.jpeg');">
@@ -133,7 +155,7 @@
                     <div class="slide-caption">Iluminación de Vías</div>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination" ></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
@@ -143,11 +165,12 @@
         <p>Manténgase al día con nuestras últimas actividades, proyectos y anuncios importantes de la DREMH Pasco.</p>
     </section>
     <!-- Elfsight Facebook Feed | Untitled Facebook Feed -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-a1a662b3-7020-49ed-a2ea-02cc73615d6d" data-elfsight-app-lazy></div>
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <div class="elfsight-app-a1a662b3-7020-49ed-a2ea-02cc73615d6d" data-elfsight-app-lazy></div>
+    <!-- 
     <section class="gallery-grid-section">
         <div class="gallery-grid-container">
-    <!--        
+           
     <a href="img/evidencia01.jpeg" 
        class="gallery-item" 
        data-title="La Dremh Pasco supervisó el cumplimiento al Planefa"
@@ -208,112 +231,157 @@
             <span>Mantenimiento de Vías</span>
         </div>
     </a>
--->
+
 </div>
     </section>
+    -->
 
-    <section class="team-section" id="team">
-        <h2>Conoce a Nuestro Equipo</h2>
+    <section class="team-section" >
+        <h2 id="team">Conoce a Nuestro Equipo</h2>
         <p>Un grupo de profesionales apasionados y dedicados a impulsar el futuro de la minería responsable.</p>
 
-        <div class="team-grid">
+        <div class="team-grid" >
 
-            <div class="team-card">
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="0">
                 <img src="img/dremhlogoicon.png" alt="Foto de Perfil">
                 <h3>Ing. Janeth M. Huaman Martel</h3>
                 <span class="title">Directora regional de Energía Minas e Hidrocarburos</span>
-                
+
             </div>
 
-            <div class="team-card">
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="50">
                 <img src="img/dremhlogoicon.png" alt="Foto de Perfil">
                 <h3>Ing. Hugo Solorzano Mauricio</h3>
                 <span class="title">Responsable del Área Técnica de Minería</span>
-            
+
             </div>
 
-            <div class="team-card">
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
                 <img src="img/dremhlogoicon.png" alt="Foto de Perfil">
                 <h3>Ing. Edith Karin Soto Ramos</h3>
                 <span class="title">Responsable del Área Técnica de Fiscalización</span>
-                
+
             </div>
 
-            <div class="team-card">
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="150">
                 <img src="img/dremhlogoicon.png" alt="Foto de Perfil">
                 <h3>Ing. Yanet Yesenia Bernabe Valerio</h3>
                 <span class="title">Responsable del Área Técnica de Hidrocarburos</span>
-            
+
             </div>
-            <div class="team-card">
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="200">
                 <img src="img/dremhlogoicon.png" alt="Foto de Perfil">
                 <h3>Ing. Ángel Octavio Atencio Ayala</h3>
                 <span class="title">Responsable del Área Técnica de Electrificación</span>
-            
+
             </div>
-            <div class="team-card">
+            <div class="team-card" data-aos="zoom-in" data-aos-delay="250">
                 <img src="img/dremhlogoicon.png" alt="Foto de Perfil">
                 <h3>Abog. Mariela Pando Pinto</h3>
                 <span class="title">Responsable del Área Legal</span>
-            
+
             </div>
 
         </div>
     </section>
+    <section class="location-section" id="ubicacion" data-aos="fade-up">
+        <div class="location-content">
+            <h2 data-aos="fade-down">Museo Minero</h2>
+            <p data-aos="fade-down">Estamos ubicados en el corazón de Yanacancha para las visitas.</p>
 
+            <div class="map-wrapper" data-aos="fade-down">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7841.78085573339!2d-76.25851751025004!3d-10.66561240790582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910813eb24fa88f3%3A0xcc39f5a81dcf60e!2sMuseo%20Minero%20DREMH!5e0!3m2!1ses!2spe!4v1763846545825!5m2!1ses!2spe"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
     <section class="areas-section" id="areas">
-        <h2>Nuestras Áreas de Competencia</h2>
-        <p>Somos un órgano público del Gobierno Regional de Pasco, dedicado a regular, supervisar y promocionar las actividades en los sectores de energía, minería e hidrocarburos, preservando los recursos naturales y el medio ambiente.</p>
+        <h2 data-aos="fade-down">Nuestras Áreas de Competencia</h2>
+        <p>Somos un órgano público del Gobierno Regional de Pasco, dedicado a regular, supervisar y promocionar las
+            actividades en los sectores de energía, minería e hidrocarburos, preservando los recursos naturales y el
+            medio ambiente.</p>
 
         <div class="areas-grid">
 
-        <div class="area-card">
-            <i class="fa-solid fa-gem"></i> 
-            <h3>Área Técnica de Minería</h3>
-            <p>Evaluamos y supervisamos las inversiones privadas para la exploración y explotación de minerales, contribuyendo al desarrollo de una minería artesanal formal y ordenada.</p>
-            <a href="docs-mineria.html" class="area-btn">Documentos Públicos <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="area-card" data-aos="fade-down">
+                <i class="fa-solid fa-gem"></i>
+                <h3>Área Técnica de Minería</h3>
+                <p>Evaluamos y supervisamos las inversiones privadas para la exploración y explotación de minerales,
+                    contribuyendo al desarrollo de una minería artesanal formal y ordenada.</p>
+                <a href="docs-mineria.html" class="area-btn">Documentos Públicos <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="area-card" data-aos="fade-down">
+                <i class="fa-solid fa-gas-pump"></i>
+                <h3>Área Técnica de Hidrocarburos</h3>
+                <p>Cumplimos la función de evaluar las inversiones públicas y privadas en las diferentes actividades de
+                    los hidrocarburos, así como sus instrumentos de Gestión Ambiental.</p>
+                <a href="docs-hidrocarburos.html" class="area-btn">Documentos Públicos <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="area-card" data-aos="fade-down">
+                <i class="fa-solid fa-leaf"></i>
+                <h3>Área Técnica de Asuntos Ambientales</h3>
+                <p>Somos un órgano técnico encargado de formular, aprobar, dirigir y supervisar los planes y políticas
+                    de conservación y protección del medio ambiente en el sector.</p>
+                <a href="docs-ambiental.html" class="area-btn">Documentos Públicos <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="area-card" data-aos="fade-down">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Área Técnica de Electricidad</h3>
+                <p>Promovemos el desarrollo de actividades orientadas a la conservación y protección del medio ambiente
+                    en el sub sector eléctrico, fortaleciendo lazos con la sociedad civil.</p>
+                <a href="docs-electricidad.html" class="area-btn">Documentos Públicos <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="area-card" data-aos="fade-down">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <h3>Área Técnica de Fiscalización</h3>
+                <p>Supervisamos a las entidades sectoriales en materia de Seguridad, Salud Ocupacional y Medio Ambiente
+                    para la viabilidad y correcta ejecución de la labor de fiscalización.</p>
+                <a href="docs-fiscalizacion.html" class="area-btn">Documentos Públicos <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </section>
+    <section class="stats-section" id="stats">
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="0">
+            <h2 class="counter">15</h2>
+            <p>Años de Experiencia</p>
+        </div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+            <h2 class="counter">120</h2>
+            <p>Proyectos Supervisados</p>
+        </div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+            <h2 class="counter">50</h2>
+            <p>Comunidades Atendidas</p>
+        </div>
+        <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+            <h2 class="counter">100%</h2>
+            <p>Compromiso Ambiental</p>
         </div>
 
-        <div class="area-card">
-            <i class="fa-solid fa-gas-pump"></i> 
-            <h3>Área Técnica de Hidrocarburos</h3>
-            <p>Cumplimos la función de evaluar las inversiones públicas y privadas en las diferentes actividades de los hidrocarburos, así como sus instrumentos de Gestión Ambiental.</p>
-            <a href="docs-hidrocarburos.html" class="area-btn">Documentos Públicos <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="area-card">
-            <i class="fa-solid fa-leaf"></i> 
-            <h3>Área Técnica de Asuntos Ambientales</h3>
-            <p>Somos un órgano técnico encargado de formular, aprobar, dirigir y supervisar los planes y políticas de conservación y protección del medio ambiente en el sector.</p>
-            <a href="docs-ambiental.html" class="area-btn">Documentos Públicos <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="area-card">
-            <i class="fa-solid fa-bolt"></i> 
-            <h3>Área Técnica de Electricidad</h3>
-            <p>Promovemos el desarrollo de actividades orientadas a la conservación y protección del medio ambiente en el sub sector eléctrico, fortaleciendo lazos con la sociedad civil.</p>
-            <a href="docs-electricidad.html" class="area-btn">Documentos Públicos <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="area-card">
-            <i class="fa-solid fa-clipboard-check"></i> 
-            <h3>Área Técnica de Fiscalización</h3>
-            <p>Supervisamos a las entidades sectoriales en materia de Seguridad, Salud Ocupacional y Medio Ambiente para la viabilidad y correcta ejecución de la labor de fiscalización.</p>
-            <a href="docs-fiscalizacion.html" class="area-btn">Documentos Públicos <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-    </div>
     </section>
 
     <footer class="footer" id="contact">
         <div class="footer-container">
-            
+
             <div class="footer-col">
                 <a href="#" class="footer-logo">
                     <img src="img/dremhlogoicon.png" alt="Logo Dremh">
                     <span>DREMH PASCO</span>
                 </a>
-                <p>Órgano del Gobierno Regional de Pasco dedicado a la minería, energía e hidrocarburos de forma responsable.</p>
+                <p>Órgano del Gobierno Regional de Pasco dedicado a la minería, energía e hidrocarburos de forma
+                    responsable.</p>
             </div>
 
             <div class="footer-col">
@@ -339,13 +407,14 @@
                     </li>
                     <li>
                         <i class="fa-brands fa-facebook"></i>
-                        <a href="https://www.facebook.com/DREMHpasco/" target="_blank">@Dirección Regional de Energía, Minas e Hidrocarburos Pasco</a>
+                        <a href="https://www.facebook.com/DREMHpasco/" target="_blank">@Dirección Regional de Energía,
+                            Minas e Hidrocarburos Pasco</a>
                     </li>
                 </ul>
             </div>
 
         </div>
-        
+
         <div class="footer-bottom">
             <p>© 2025 DREMH. Todos los derechos reservados. Desarrollado por Jolsata24</p>
         </div>
@@ -363,8 +432,11 @@
             </div>
         </div>
     </div>
-    
+    <a href="https://wa.me/51969704480" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
