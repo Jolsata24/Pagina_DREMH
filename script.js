@@ -1,146 +1,82 @@
-// Espera a que todo el contenido (DOM) esté cargado antes de ejecutar cualquier script
 document.addEventListener("DOMContentLoaded", function() {
-    AOS.init({
-        duration: 1000, // Duración de la animación en milisegundos (1 segundo)
-        once: true,     // La animación solo ocurre una vez al bajar
-        offset: 100     // Comienza la animación 100px antes de llegar al elemento
-    });
-    // ======== 1. CÓDIGO DEL MENÚ HAMBURGUESA ========
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
+    
+    // 1. INICIALIZAR AOS (Animaciones)
+    // Verificamos si AOS está cargado para evitar errores
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    }
 
-
+    // ======== 2. CÓDIGO DEL MENÚ HAMBURGUESA (CORREGIDO) ========
+    // En tu HTML la clase es "menu-toggle", no "hamburger"
+    const hamburger = document.querySelector(".menu-toggle");
+    // En tu HTML la clase es "nav-links", no "nav-menu"
+    const navMenu = document.querySelector(".nav-links");
 
     if (hamburger && navMenu) {
         hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
+            // Alternamos la clase 'active' para mostrar/ocultar menú
             navMenu.classList.toggle("active");
+            
+            // Opcional: Cambiar el icono de barras a X si tienes CSS para ello
+            const icon = hamburger.querySelector("i");
+            if (icon) {
+                icon.classList.toggle("fa-bars");
+                icon.classList.toggle("fa-times");
+            }
         });
     }
 
-    // ======== 2. CÓDIGO DEL HEADER OCULTO ========
-    const header = document.querySelector(".header");
+    // ======== 3. CÓDIGO DEL HEADER/NAVBAR (CORREGIDO) ========
+    // En index.html usas <nav id="navbar">
+    const navbar = document.getElementById("navbar");
     
-    if (header) {
-        const scrollThreshold = 100; // Píxeles para mostrar el header
-
+    if (navbar) {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > scrollThreshold) {
-                header.classList.add("is-visible");
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled"); 
+                // Asegúrate de añadir estilos CSS para .scrolled (ej: background-color: #fff)
             } else {
-                header.classList.remove("is-visible");
+                navbar.classList.remove("scrolled");
             }
         });
     }
 
-    // ======== 3. CÓDIGO DEL CARRUSEL SWIPER ========
-    // (Asegúrate de que la clase '.swiper' exista en tu HTML)
-    if (document.querySelector('.swiper')) {
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-    }
+    // ======== 4. CÓDIGO DE LA GALERÍA (NUEVO) ========
+    // Tu HTML tiene botones prevBtn/nextBtn y un contenedor gallerySlider
+    const slider = document.getElementById('gallerySlider');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
 
-    // ======== 4. CÓDIGO DE LA GALERÍA LIGHTBOX (Actualizado para "suavidad") ========
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const lightbox = document.getElementById('gallery-lightbox');
-    
-    if (galleryItems.length > 0 && lightbox) {
-        const lightboxImg = document.getElementById('lightbox-img-src');
-        const lightboxTitle = document.querySelector('.lightbox-info h4');
-        const lightboxDesc = document.getElementById('lightbox-description');
-        const closeBtn = document.querySelector('.lightbox-close');
-
-        // Función para abrir el lightbox (AHORA USA CLASES)
-        function openLightbox(e) {
-            e.preventDefault();
-            
-            const imgSrc = this.getAttribute('href');
-            const title = this.getAttribute('data-title');
-            const description = this.getAttribute('data-description');
-            
-            lightboxImg.setAttribute('src', imgSrc);
-            lightboxTitle.textContent = title;
-            lightboxDesc.textContent = description;
-            
-            // Reemplaza 'lightbox.style.display = 'block';'
-            lightbox.classList.add('lightbox-is-visible'); 
-        }
-
-        // Función para cerrar el lightbox (AHORA USA CLASES)
-        function closeLightbox() {
-            // Reemplaza 'lightbox.style.display = 'none';'
-            lightbox.classList.remove('lightbox-is-visible'); 
-            
-            // Opcional: Limpia la imagen después de que la animación termine
-            setTimeout(() => {
-                lightboxImg.setAttribute('src', ''); 
-            }, 400); // 400ms = tiempo de la transición en el CSS
-        }
-
-        galleryItems.forEach(item => {
-            item.addEventListener('click', openLightbox);
+    if (slider && prevBtn && nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            // Desplazar a la derecha (320px es un aproximado del ancho de tarjeta + margen)
+            slider.scrollBy({ left: 320, behavior: 'smooth' });
         });
 
-        if (closeBtn) {
-            closeBtn.addEventListener('click', closeLightbox);
-        }
-        
-        // Cerrar al hacer clic fuera
-        lightbox.addEventListener('click', function(e) {
-            if (e.target.id === 'gallery-lightbox') {
-                closeLightbox();
-            }
-        });
-    }
-    const whatsappBtn = document.getElementById('whatsapp-btn');
-    const targetSection = document.getElementById('principles'); // La sección objetivo
-
-    if (whatsappBtn && targetSection) {
-        window.addEventListener('scroll', () => {
-            // Obtenemos la posición de la sección "Principios" respecto al top
-            const sectionTop = targetSection.offsetTop;
-            const scrollPos = window.scrollY + window.innerHeight; // Posición actual del scroll + altura de ventana
-
-            // LÓGICA:
-            // Si hemos bajado más allá del inicio de la sección "Principios" (con un pequeño margen)
-            // Mostramos el botón. Si subimos, lo ocultamos.
-            
-            if (window.scrollY > (sectionTop - 400)) { 
-                // "- 400" es un ajuste para que aparezca un poco antes de llegar exacto a la sección
-                whatsappBtn.classList.add('is-visible');
-            } else {
-                whatsappBtn.classList.remove('is-visible');
-            }
+        prevBtn.addEventListener('click', () => {
+            // Desplazar a la izquierda
+            slider.scrollBy({ left: -320, behavior: 'smooth' });
         });
     }
 });
 
-
-// ======== CÓDIGO DEL LOADER ========
-// Usamos 'load' en lugar de 'DOMContentLoaded' para esperar a que carguen las IMÁGENES
+// ======== 5. CÓDIGO DEL LOADER (CORREGIDO) ========
 window.addEventListener("load", () => {
-    const loader = document.getElementById("page-loader");
+    // En tu HTML el ID es "preloader", no "page-loader"
+    const loader = document.getElementById("preloader");
     
     if (loader) {
-        // Añadimos la clase que lo hace transparente
-        loader.classList.add("loader-hidden");
+        // Hacemos que se desvanezca
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 0.5s ease';
         
-        // Opcional: Eliminarlo del HTML completamente después de la transición
-        loader.addEventListener("transitionend", () => {
-            // loader.remove(); // Descomenta si quieres borrarlo del DOM
-        });
+        // Lo eliminamos del flujo después de la transición
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
     }
 });
